@@ -6,13 +6,73 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <androidx.constraintlayout.widget.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".40"
+        android:id="@+id/bannerline"/>
+    <!--TODO add clipart background-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/banner"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bannerline"
+        android:background="@color/orange">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hati Hati Pa Pa"
+            android:textSize="@dimen/titletxt"
+            android:paddingLeft="@dimen/padding"
+            android:paddingBottom="@dimen/titletxt"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/btnHeight"
+        android:id="@+id/about"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bannerline"
+        app:layout_constraintVertical_bias="1.1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="@string/about"/>
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/btnHeight"
+        android:id="@+id/settings"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bannerline"
+        app:layout_constraintVertical_bias="1.1"
+        app:layout_constraintLeft_toRightOf="@id/about"
+        android:layout_marginLeft="@dimen/padding" />
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/btnHeight"
+        android:id="@+id/add"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bannerline"
+        app:layout_constraintVertical_bias="1.1"
+        app:layout_constraintLeft_toRightOf="@id/settings"
+        android:layout_marginLeft="@dimen/padding"/>
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/btnHeight"
+        android:id="@+id/search"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bannerline"
+        app:layout_constraintVertical_bias="1.1"
+        app:layout_constraintLeft_toRightOf="@id/add"
+        android:layout_marginLeft="@dimen/padding"/>
+    <!--TODO button stays on the middle of the line??-->
+    <!--buttonshape https://www.codebrainer.com/blog/13-designs-for-buttons-every-android-beginner-should-know-->
+    <androidx.appcompat.widget.ActionMenuView
+        android:id="@+id/bottombar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/menusize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:elevation="4dp"/>>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

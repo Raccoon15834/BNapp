@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_alignParentBottom="true"
+    android:elevation="4dp">
+    <item android:id="@+id/speak"
+        android:title="A"/>
+    <item android:id="@+id/memorize"
+        android:title="B"/>
+    <item android:id="@+id/home"
+        android:title="C"/>
+    <item android:id="@+id/read"
+        android:title="D"/>
+    <item android:id="@+id/write"
+        android:title="E"/>
+</menu>
