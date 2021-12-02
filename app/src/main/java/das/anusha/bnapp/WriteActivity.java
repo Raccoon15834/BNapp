@@ -42,7 +42,7 @@ public class WriteActivity extends Activity {
     }
 
     private String getUserName() {
-        SwitchCompat anonOption = (SwitchCompat) findViewById(R.id.anonSwitch);
+        SwitchCompat anonOption = (SwitchCompat) findViewById(R.id.anonOption);
         //if(anonOption.select)
         if( anonOption.isChecked()) return "Anonymous";
         EditText username = (EditText) findViewById(R.id.userPost);

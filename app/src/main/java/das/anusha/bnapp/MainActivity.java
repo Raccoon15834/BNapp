@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.ActionMenuView;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatImageButton;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
         //Ctrl+B to move to step
         setUpMenu(); //TODO highlight selected, smooth transition
         setUpButtons();
+        RecyclerView.LayoutManager mLM = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
+        RecyclerView posts = (RecyclerView) findViewById(R.id.postScroll);
+        posts.setLayoutManager(mLM);
+        posts.setAdapter(new PostsRecyclerViewAdapter(this));
     }
 
     private void setUpMenu() {
