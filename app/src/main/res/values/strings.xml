@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">BNapp</string>
     <string name="about">About</string>
+    <string name="writeTitle">Write</string>
+    <string name="prompts">Prompts</string>
+    <string name="titleSubmission">Title</string>
+    <string name="anonOption">Anonymous</string>
+    <string name="userNameHint">Name or Pseudonym</string>
 </resources>

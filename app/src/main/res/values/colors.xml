@@ -12,4 +12,6 @@
     <color name="orange">#E08600</color>
     <color name="yellow">#EFBF38</color>
     <color name="brown">#763a12</color>
+    <color name="redaccent">#9F1141</color>
+    <!--duller orange, switch with original, dark red accent)-->
 </resources>
