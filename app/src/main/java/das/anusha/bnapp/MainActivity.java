@@ -13,6 +13,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -39,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
         posts.setLayoutManager(mLM);
         posts.setAdapter(new PostsRecyclerViewAdapter(this));
         //set up database listener
-        mFD = FirebaseDatabase.getInstance();
+        FirebaseApp app = FirebaseApp.initializeApp(this);
+        mFD = FirebaseDatabase.getInstance(app);
         mFD.getReference("AllPosts").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
