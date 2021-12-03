@@ -11,7 +11,19 @@ public class PostData {
         this.title = title;
         this.name = name;
     }
-    public String toJson(){
-        return "";
+
+    public String getContent() {
+        return content;
     }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getName() {
+        return name;
+    }
+//    public String toJson(){
+//        return "";
+//    } UNNECESSARY, CAN SAVE DIRECTLY IN DATABASE
 }

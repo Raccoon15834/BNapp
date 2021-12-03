@@ -8,21 +8,33 @@ import android.widget.EditText;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.appcompat.widget.SwitchCompat;
+
+import com.firebase.client.Firebase;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 //COMBINE recycler view - https://www.geeksforgeeks.org/staggered-gridview-in-android-with-example/
 //WITH firebase database - https://github.com/dltra/FirebaseChatRoom/commit/82d7895b9d7ecaffb4419c3b866c0d2d6eb3b573
-//look at other chat tutorials
+//other chat tutorials
 //https://code.tutsplus.com/tutorials/how-to-create-an-android-chat-app-using-firebase--cms-27397
 //https://medium.com/@meetpatel12121995/realtime-chat-using-firebase-database-b65ee23f3b6a
 //https://www.raywenderlich.com/22067733-firebase-tutorial-real-time-chat
 
 public class WriteActivity extends Activity {
     AppCompatImageButton check;
+    FirebaseDatabase mFD;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_write);
 
         setUpSubmissionChecker();//TODO ensure that it meets post requirements
+        mFD = FirebaseDatabase.getInstance();
+        //TODO just for now, clearing all inputs
     }
 
     private void setUpSubmissionChecker() {
@@ -35,8 +47,23 @@ public class WriteActivity extends Activity {
                 String titleStr = String.valueOf(title.getText());
                 String contentStr = String.valueOf(content.getText());
                 String username = getUserName();
-
-
+                //clear edit texts
+                title.setText("");
+                content.setText("");
+                //input in database
+                //TODO increment number of posts too
+                //what the heck is a .child??? why not just getReference()? - https://www.techotopia.com/index.php?title=Writing_Firebase_Realtime_Database_Data&mobileaction=toggle_view_mobile#
+                //String key = messageRef.push().getKey();
+                //chatMessageModel.messageId = key;
+                //messageRef.child(key).setValue(chatMessageModel); CAN DO THIS orrr directly ref.push().setValue();
+                // update post in multiple places https://firebase.google.com/docs/database/android/read-and-write#update_specific_fields
+                //automatically create pathways - by calling getReference(/test/data/message1);
+                //do set numbers like #posts pathway through android?
+                //:: get username, add posts to its user, add posts to all posts
+                PostData newPost = new PostData(contentStr, titleStr, username);
+                DatabaseReference mDR = mFD.getReference("/Users/"+FirebaseAuth.getInstance().getCurrentUser().toString());
+                mDR.push().setValue(newPost);
+                mFD.getReference("/AllPosts").push().setValue(newPost);
             }
         });
     }
@@ -46,7 +73,10 @@ public class WriteActivity extends Activity {
         //if(anonOption.select)
         if( anonOption.isChecked()) return "Anonymous";
         EditText username = (EditText) findViewById(R.id.userPost);
-        return String.valueOf(username.getText());
+        String user = String.valueOf(username.getText());
+        username.setText("");
+        anonOption.setChecked(false);
+        return user;
         //https://dev.to/akshayranagujjar/how-to-make-custom-switch-in-android-5d1d custom look
         //<?xml version="1.0" encoding="utf-8"?>
         //<shape xmlns:android="http://schemas.android.com/apk/res/android">

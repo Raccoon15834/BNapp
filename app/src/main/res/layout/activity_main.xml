@@ -65,6 +65,7 @@
         app:layout_constraintVertical_bias="1.1"
         app:layout_constraintLeft_toRightOf="@id/add"
         android:layout_marginLeft="@dimen/padding"/>
+    <!-- expands into type bar, also sort by recent, likes, mine, my liked-->
     <!--TODO button stays on the middle of the line??-->
     <!--buttonshape https://www.codebrainer.com/blog/13-designs-for-buttons-every-android-beginner-should-know-->
     <androidx.recyclerview.widget.RecyclerView
