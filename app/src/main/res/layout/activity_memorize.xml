@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/memorizeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding"
+        android:text="@string/memorizeTitle"
+        android:textSize="@dimen/subtitletxt"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".20" />
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/flashcardSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/btnHeight"
+        app:layout_constraintBottom_toTopOf="@id/buttonLine"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/flashcardSearch"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/deckFrags"
+            android:orientation="vertical"/>
+    </ScrollView>
+<!--    <GridLayout-->
+<!--        android:id="@+id/deckFrags"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="@dimen/shortAnswH"-->
+<!--        android:layout_margin="@dimen/padding"-->
+<!--        android:hint="@string/titleSubmission"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/flashcardSearch"-->
+<!--        android:background="@color/white"/>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

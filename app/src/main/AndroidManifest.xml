@@ -26,6 +26,46 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>
         </activity>
+        <activity
+            android:name=".SpeakActivity"
+            android:label="Speak"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <activity
+            android:name=".SpeakLesson"
+            android:label="Lesson"
+            android:parentActivityName=".SpeakActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".SpeakActivity"/>
+        </activity>
+        <activity
+            android:name=".MemorizeActivity"
+            android:label="Memorize"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <activity
+            android:name=".Flashcards"
+            android:label="Flashcards"
+            android:parentActivityName=".MemorizeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MemorizeActivity"/>
+        </activity>
+        <activity
+            android:name=".ReadActivity"
+            android:label="Read"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
     </application>
 
 </manifest>

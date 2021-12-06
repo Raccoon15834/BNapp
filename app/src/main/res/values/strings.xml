@@ -6,4 +6,8 @@
     <string name="titleSubmission">Title</string>
     <string name="anonOption">Anonymous</string>
     <string name="userNameHint">Name or Pseudonym</string>
+    <string name="speakTitle">Speak</string>
+    <string name="memorizeTitle">Memorize</string>
+    <string name="readTitle">Read</string>
+    <string name="tips">Tips</string>
 </resources>

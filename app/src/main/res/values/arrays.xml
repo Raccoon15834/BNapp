@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="pics1">
+        <item>2</item>
+    </integer-array>
+    <string name="deck1">
+    </string>
+
+    <!--these 3 must be the same length-->
+    <!--make sure all of the layouts have back buttons embedded-->
+    <string-array name="speakLessonNames">
+    </string-array>
+    <integer-array name="speakLayoutIds">
+    </integer-array>
+    <integer-array name="speakImages">
+    </integer-array>
+
+</resources>
