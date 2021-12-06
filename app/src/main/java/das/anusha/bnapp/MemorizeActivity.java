@@ -24,7 +24,7 @@ public class MemorizeActivity extends Activity implements FlashcardDeck.deckSele
         String p = getPackageCodePath();
         int i=1;
         String title=res.getString(res.getIdentifier("title"+i, null, p));
-        String[] tags =res.getStringArray(res.getIdentifier("tags"+i, null, p);
+        String[] tags =res.getStringArray(res.getIdentifier("tags"+i, null, p));
         int[] pics =res.getIntArray(res.getIdentifier("imgs"+i, null, p));
         String[] strs =res.getStringArray(res.getIdentifier("strs"+i, null, p));
         while(title!=null){

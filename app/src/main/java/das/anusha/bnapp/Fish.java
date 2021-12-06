@@ -1,4 +1,6 @@
 package das.anusha.bnapp;
 
-public class Fish extends RectF{
+import android.graphics.RectF;
+
+public class Fish extends RectF {
 }

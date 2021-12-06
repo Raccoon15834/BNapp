@@ -47,7 +47,8 @@ public class MainActivity extends AppCompatActivity {
         posts.setAdapter(new PostsRecyclerViewAdapter(this));
         //set up database listener
         FirebaseApp app = FirebaseApp.initializeApp(this);
-        mFD = FirebaseDatabase.getInstance(app);
+        mFD = FirebaseDatabase.getInstance();
+       // mFD = FirebaseDatabase.getInstance(app);
         mFD.getReference("AllPosts").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {

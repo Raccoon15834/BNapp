@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "101103248987",
+    "project_id": "bnapp-20786",
+    "storage_bucket": "bnapp-20786.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:101103248987:android:fe2a04d9f2bfd6a263c17e",
+        "android_client_info": {
+          "package_name": "das.anusha.bnapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "101103248987-uqcn93us5hfo69u869vcbdtg6jgsh7t2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZiAhT5ZyEOq9IGvfh4pnQN0WMOjij1Vc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "101103248987-uqcn93us5hfo69u869vcbdtg6jgsh7t2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

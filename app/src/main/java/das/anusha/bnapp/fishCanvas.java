@@ -17,6 +17,6 @@ public class fishCanvas extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        bmp = Fish.drawableToBitmap(getResources().getDrawable(R.drawable.ic_letter));
+        //bmp = Fish.drawableToBitmap(getResources().getDrawable(R.drawable.ic_letter));
     }
 }
