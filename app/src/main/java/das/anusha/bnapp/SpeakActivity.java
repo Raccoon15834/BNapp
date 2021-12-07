@@ -20,6 +20,7 @@ public class SpeakActivity extends Activity implements SpeakLessonFragment.setSe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_speak);
         //TODO add 8 lesson fragments by iterating through array of its looks,
+        // embedding videos https://www.c-sharpcorner.com/article/adding-video-to-an-android-application/
         String[] titles = getResources().getStringArray(R.array.speakLessonNames);
         int[] imgs = getResources().getIntArray(R.array.speakImages);
         int[] lays = getResources().getIntArray(R.array.speakLayoutIds);
