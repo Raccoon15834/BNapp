@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -32,8 +33,27 @@ public class fishCanvas extends View {
         invalidate();
     }
 
-    @Override
-    public void setOnTouchListener(OnTouchListener l) {
-        super.setOnTouchListener(l);
-    }
+//    @Override
+//    public boolean onTouchEvent(MotionEvent event) {
+//        return super.onTouchEvent(event);
+//
+//        double MIN_DISTANCE, x1, x2;
+//        MIN_DISTANCE = 40;
+//        switch (event.getAction()) {
+//            case MotionEvent.ACTION_DOWN:
+//                x1 = event.getX();
+//                break;
+//            case MotionEvent.ACTION_UP:
+//                x2 = event.getX();
+//                double deltaX = x2 - x1;
+//                if (deltaX > MIN_DISTANCE) {
+//                    //left to right
+//                } else if(deltaX<-MIN_DISTANCE){
+//                    //right to left
+//                }
+//                break;
+//        }
+//    }
+
+
 }
