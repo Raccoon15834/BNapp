@@ -17,6 +17,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarMenu;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,11 +30,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import das.anusha.bnapp.ActivityWithMenu;
 import com.google.firebase.database.ValueEventListener;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener {
     Menu mybar;
     AppCompatImageButton settings, plus, search;
     AppCompatButton about;
     FirebaseDatabase mFD;
+    RecyclerView posts;
     Activity a = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,15 +44,12 @@ public class MainActivity extends AppCompatActivity {
 
         //Ctrl+B to move to step
         setUpButtons();
-        //set up RecyclerView
-        RecyclerView.LayoutManager mLM = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
-        RecyclerView posts = (RecyclerView) findViewById(R.id.postScroll);
-        posts.setLayoutManager(mLM);
-        posts.setAdapter(new PostsRecyclerViewAdapter(this));
+        setUpRecyclerView();
+        BottomNavigationView nav =  (BottomNavigationView)findViewById(R.id.bottom_navigatin_view);
+        nav.setOnItemSelectedListener(this);
+
         //set up database listener
-        FirebaseApp app = FirebaseApp.initializeApp(this);
         mFD = FirebaseDatabase.getInstance();
-       // mFD = FirebaseDatabase.getInstance(app);
         mFD.getReference("AllPosts").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -75,8 +76,14 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        //HOW TO GET STRINGS
 
+    }
+
+    private void setUpRecyclerView() {
+        RecyclerView.LayoutManager mLM = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
+        posts = (RecyclerView) findViewById(R.id.postScroll);
+        posts.setLayoutManager(mLM);
+        posts.setAdapter(new PostsRecyclerViewAdapter(this));
     }
 
     @Override
@@ -93,12 +100,7 @@ public class MainActivity extends AppCompatActivity {
 //https://firebase.google.com/docs/auth/android/custom-auth
     private void startSignIn() {
     }
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Log.i("menubar", "menu clicked!!!!!!!");
-        if (!ActivityWithMenu.setOptionsSelected(this, item)) return super.onOptionsItemSelected(item);
-        return true;
-    }
+
 
     private void setUpButtons() {
         about = (AppCompatButton)findViewById(R.id.about);
@@ -116,10 +118,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        ActivityWithMenu.setUpMenu(this, mybar); //TODO highlight selected, smooth transition
-        return true;
-    }
+            return ActivityWithMenu.setOptionsSelected(this, item);
+        }
 }

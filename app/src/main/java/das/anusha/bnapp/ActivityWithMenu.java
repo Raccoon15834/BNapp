@@ -11,7 +11,7 @@ import androidx.appcompat.widget.ActionMenuView;
 
 public abstract class ActivityWithMenu {
     public static void setUpMenu(Activity a, Menu mybar) {
-        mybar = ((ActionMenuView) a.findViewById(R.id.bottombar)).getMenu();
+        //mybar = ((ActionMenuView) a.findViewById(R.id.bottombar)).getMenu();
         a.getMenuInflater().inflate(R.menu.menubar, mybar);
         Log.i("menubar", "setting up");
     }
