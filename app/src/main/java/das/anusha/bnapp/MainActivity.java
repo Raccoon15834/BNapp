@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -39,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Ctrl+B to move to step
+        ActivityWithMenu.setUpMenu(this, mybar); //TODO highlight selected, smooth transition
         setUpButtons();
         //set up RecyclerView
         RecyclerView.LayoutManager mLM = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
@@ -76,26 +76,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //HOW TO GET STRINGS
-
+        // String a = getResources().getString(getResources().getIdentifier("namem"+i, "strings", getPackageCodePath()))
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         if(FirebaseAuth.getInstance().getCurrentUser()==null){
-            startSignIn();//TODO sign in with google or something, use firebase assistant
+            startSignIn();//TODO finish
             //temp;
             FirebaseAuth.getInstance().signInAnonymously();
-            ////FirebaseAuth.getInstance().updateCurrentUser(FirebaseAuth.getInstance().getCurrentUser());
-            //mFD.getReference("/Users/"+FirebaseAuth.getInstance().getCurrentUser().toString());
+            mFD.getReference("/Users/"+FirebaseAuth.getInstance().getCurrentUser().toString());
         }
     }
 //https://firebase.google.com/docs/auth/android/custom-auth
     private void startSignIn() {
     }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Log.i("menubar", "menu clicked!!!!!!!");
         if (!ActivityWithMenu.setOptionsSelected(this, item)) return super.onOptionsItemSelected(item);
         return true;
     }
@@ -117,9 +116,5 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        ActivityWithMenu.setUpMenu(this, mybar); //TODO highlight selected, smooth transition
-        return true;
-    }
+
 }
