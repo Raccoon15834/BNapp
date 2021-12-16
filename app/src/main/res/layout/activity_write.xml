@@ -33,57 +33,77 @@
         android:layout_marginLeft="@dimen/padding"
         app:layout_constraintBottom_toTopOf="@id/buttonLine"
         app:layout_constraintLeft_toRightOf="@id/about" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/titlePost"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/shortAnswH"
-        android:layout_margin="@dimen/padding"
-        android:hint="@string/titleSubmission"
-        app:layout_constraintTop_toBottomOf="@id/check"
-        android:background="@color/white"/>
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigatin_view"
+        app:layout_constraintTop_toBottomOf="@id/check">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/titlePost"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/shortAnswH"
+                android:layout_margin="@dimen/padding"
+                android:hint="@string/titleSubmission"
+                app:layout_constraintTop_toBottomOf="@id/check"
+                android:background="@color/white"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/textPost"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/longAnswH"
+                    android:layout_margin="@dimen/padding"
+                    android:background="@color/white"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                <!--CUSTOM TOGGLE BUTTON! https://stackoverflow.com/questions/23358822/how-to-custom-switch-button-->
+                <androidx.appcompat.widget.SwitchCompat
+                    app:layout_constraintTop_toTopOf="@id/textPost"
+                    app:layout_constraintLeft_toLeftOf="@id/textPost"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:padding="@dimen/padding"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding"
+                    android:id="@+id/anonOption"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textPost"
+                    android:textSize="@dimen/subtitletxt"
+                    android:text="@string/anonOption"/>
+                <androidx.appcompat.widget.SwitchCompat
+                    app:layout_constraintLeft_toRightOf="@id/anonOption"
+                    app:layout_constraintTop_toBottomOf="@id/textPost"
+                    app:layout_constraintBottom_toBottomOf="@id/anonOption"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:padding="@dimen/padding"
+                    android:id="@+id/anonSwitch"/>
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/textPost"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/longAnswH"
-        android:layout_margin="@dimen/padding"
-        app:layout_constraintTop_toBottomOf="@id/titlePost"
-        android:background="@color/white"/>
-    <!--CUSTOM TOGGLE BUTTON! https://stackoverflow.com/questions/23358822/how-to-custom-switch-button-->
-    <androidx.appcompat.widget.SwitchCompat
-        app:layout_constraintTop_toTopOf="@id/textPost"
-        app:layout_constraintLeft_toLeftOf="@id/textPost"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:padding="@dimen/padding"/>
-    <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/padding"
-        android:id="@+id/anonOption"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textPost"
-        android:textSize="@dimen/subtitletxt"
-        android:text="@string/anonOption"/>
-    <androidx.appcompat.widget.SwitchCompat
-        app:layout_constraintLeft_toRightOf="@id/anonOption"
-        app:layout_constraintTop_toBottomOf="@id/textPost"
-        app:layout_constraintBottom_toBottomOf="@id/anonOption"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:padding="@dimen/padding"
-        android:id="@+id/anonSwitch"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/userPost"
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/userPost"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/shortAnswH"
+                android:layout_margin="@dimen/padding"
+                android:hint="@string/userNameHint"
+                android:background="@color/white"/>
+            <!--hide if anonymous not selected-->
+        </LinearLayout>
+    </ScrollView>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigatin_view"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/shortAnswH"
-        android:layout_margin="@dimen/padding"
-        android:hint="@string/userNameHint"
-        app:layout_constraintTop_toBottomOf="@id/anonOption"
-        android:background="@color/white"/>
-    <!--hide if anonymous not selected-->
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/menubar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,14 +2,19 @@ package das.anusha.bnapp;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.appcompat.widget.SwitchCompat;
 
 import com.firebase.client.Firebase;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,19 +28,28 @@ import com.google.firebase.database.ValueEventListener;
 //https://medium.com/@meetpatel12121995/realtime-chat-using-firebase-database-b65ee23f3b6a
 //https://www.raywenderlich.com/22067733-firebase-tutorial-real-time-chat
 
-public class WriteActivity extends Activity {
+public class WriteActivity extends Activity implements NavigationBarView.OnItemSelectedListener{
     AppCompatImageButton check;
     FirebaseDatabase mFD;
+    SwitchCompat anonOption;
+    EditText username;
+    Activity a  = this;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_write);
 
+        setUpUserName();
         setUpSubmissionChecker();//TODO ensure that it meets post requirements
         mFD = FirebaseDatabase.getInstance();
         //TODO just for now, clearing all inputs
+
+        BottomNavigationView nav =  (BottomNavigationView)findViewById(R.id.bottom_navigatin_view);
+        nav.setSelectedItemId(R.id.write);
+        nav.setOnItemSelectedListener(this);
     }
+
 
     private void setUpSubmissionChecker() {
         check = (AppCompatImageButton) findViewById(R.id.check);
@@ -61,18 +75,17 @@ public class WriteActivity extends Activity {
                 //do set numbers like #posts pathway through android?
                 //:: get username, add posts to its user, add posts to all posts
                 PostData newPost = new PostData(contentStr, titleStr, username);
-                DatabaseReference mDR = mFD.getReference("/Users/"+FirebaseAuth.getInstance().getCurrentUser().toString());
-                mDR.push().setValue(newPost);
+                //DatabaseReference mDR = mFD.getReference("/Users/"+FirebaseAuth.getInstance().getCurrentUser().toString());
+                //mDR.push().setValue(newPost);
                 mFD.getReference("/AllPosts").push().setValue(newPost);
+                ActivityWithMenu.initiate(MainActivity.class, a);
             }
         });
     }
 
     private String getUserName() {
-        SwitchCompat anonOption = (SwitchCompat) findViewById(R.id.anonOption);
         //if(anonOption.select)
         if( anonOption.isChecked()) return "Anonymous";
-        EditText username = (EditText) findViewById(R.id.userPost);
         String user = String.valueOf(username.getText());
         username.setText("");
         anonOption.setChecked(false);
@@ -84,5 +97,23 @@ public class WriteActivity extends Activity {
         //    <solid android:color="@color/purple"></solid>
         //</shape>
         //set on selected/on touched different colors
+    }
+    private void setUpUserName() {
+        username = (EditText) findViewById(R.id.userPost);
+        anonOption = (SwitchCompat) findViewById(R.id.anonSwitch);
+        anonOption.setChecked(true);
+        username.setVisibility(View.GONE);
+        anonOption.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b) username.setVisibility(View.GONE);
+                else username.setVisibility(View.VISIBLE);
+            }
+        });
+
+    }
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        return ActivityWithMenu.setOptionsSelected(this, item);
     }
 }

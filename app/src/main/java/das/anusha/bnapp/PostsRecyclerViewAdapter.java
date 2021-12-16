@@ -1,6 +1,7 @@
 package das.anusha.bnapp;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,23 +15,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.database.DataSnapshot;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 public class PostsRecyclerViewAdapter extends RecyclerView.Adapter {
     private Context context;
-    private int numViews;
-    private ArrayList<DataSnapshot> mDS;
+    ArrayList<DataSnapshot> mDS;
     public PostsRecyclerViewAdapter(Context c) {
-        context = c;
-        numViews = 0;
-    }
-    public PostsRecyclerViewAdapter(Context c, DataSnapshot ds){
-        context = c;
         mDS = new ArrayList<DataSnapshot>();
-        for(DataSnapshot d: ds.child("/AllPosts").getChildren())mDS.add(d);
-        numViews = mDS.size();
+        context = c;
     }
-
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -41,12 +35,13 @@ public class PostsRecyclerViewAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        ((mViewHolder) holder).setData((PostData) mDS.get(position).getValue()); // gives holder with position data
+        PostData pdtemp = mDS.get(position).getValue(PostData.class);
+        ((mViewHolder) holder).setData(pdtemp); // gives holder with position data
     }
 
     @Override
     public int getItemCount() {
-        return numViews;
+        return mDS.size();
     }
 
     public static class mViewHolder extends RecyclerView.ViewHolder {
@@ -55,8 +50,8 @@ public class PostsRecyclerViewAdapter extends RecyclerView.Adapter {
         public TextView c, t, u;
         public mViewHolder(View itemView) {
             super(itemView); //gets the views of the fragment
-            t = (TextView) itemView.findViewById(R.id.titlePost);
-            u = (TextView) itemView.findViewById(R.id.userPost);
+            t = (TextView) itemView.findViewById(R.id.title);
+            u = (TextView) itemView.findViewById(R.id.name);
         }
         public void setData(PostData pd){
             fragData = pd;

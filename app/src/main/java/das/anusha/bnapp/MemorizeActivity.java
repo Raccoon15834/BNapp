@@ -12,7 +12,10 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-public class MemorizeActivity extends Activity implements FlashcardDeck.deckSelector{
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
+
+public class MemorizeActivity extends Activity implements FlashcardDeck.deckSelector, NavigationBarView.OnItemSelectedListener{
     Menu mybar;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,7 +41,9 @@ public class MemorizeActivity extends Activity implements FlashcardDeck.deckSele
 
         }
 
-        ActivityWithMenu.setUpMenu(this, mybar);
+        BottomNavigationView nav =  (BottomNavigationView)findViewById(R.id.bottom_navigatin_view);
+        nav.setSelectedItemId(R.id.memorize);
+        nav.setOnItemSelectedListener(this);
     }
 
     private void addFragment(int[] pics, String[] strs, String title, String[] tags) {
@@ -48,10 +53,9 @@ public class MemorizeActivity extends Activity implements FlashcardDeck.deckSele
         ft.commit();
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (!ActivityWithMenu.setOptionsSelected(this, item)) return super.onOptionsItemSelected(item);
-        return true;
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        return ActivityWithMenu.setOptionsSelected(this, item);
     }
 
     @Override

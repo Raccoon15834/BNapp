@@ -13,7 +13,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import android.app.Fragment;
 
-public class SpeakActivity extends Activity implements SpeakLessonFragment.setSelector{
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
+
+public class SpeakActivity extends Activity implements SpeakLessonFragment.setSelector, NavigationBarView.OnItemSelectedListener{
     Menu mybar;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,7 +31,8 @@ public class SpeakActivity extends Activity implements SpeakLessonFragment.setSe
             addFragment(titles[i], imgs[i], lays[i]);
         }
 
-        ActivityWithMenu.setUpMenu(this, mybar);
+        BottomNavigationView nav =  (BottomNavigationView)findViewById(R.id.bottom_navigatin_view);
+        nav.setOnItemSelectedListener(this);
     }
 
     private void addFragment(String title, int img, int lay) {
@@ -47,10 +51,9 @@ public class SpeakActivity extends Activity implements SpeakLessonFragment.setSe
         startActivity(starter);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (!ActivityWithMenu.setOptionsSelected(this, item)) return super.onOptionsItemSelected(item);
-        return true;
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        return ActivityWithMenu.setOptionsSelected(this, item);
     }
 }
 
