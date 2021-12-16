@@ -1,6 +1,7 @@
 package das.anusha.bnapp;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.ActionMenuView;
 import androidx.appcompat.widget.AppCompatButton;
@@ -30,13 +31,17 @@ import com.google.firebase.database.FirebaseDatabase;
 import das.anusha.bnapp.ActivityWithMenu;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener {
     Menu mybar;
     AppCompatImageButton settings, plus, search;
     AppCompatButton about;
     FirebaseDatabase mFD;
     RecyclerView posts;
+    BottomNavigationView nav;
     Activity a = this;
+    chilListener mPostListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,40 +50,70 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
         //Ctrl+B to move to step
         setUpButtons();
         setUpRecyclerView();
-        BottomNavigationView nav =  (BottomNavigationView)findViewById(R.id.bottom_navigatin_view);
+        nav =  (BottomNavigationView)findViewById(R.id.bottom_navigatin_view);
+        nav.setSelectedItemId(R.id.home);
         nav.setOnItemSelectedListener(this);
 
         //set up database listener
         mFD = FirebaseDatabase.getInstance();
-        mFD.getReference("AllPosts").addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                posts.setAdapter(new PostsRecyclerViewAdapter(getApplicationContext(), dataSnapshot));
-            }
+        mPostListener = new chilListener();
+        mFD.getReference("/AllPosts").addChildEventListener(mPostListener);
 
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+        //add initial posts TODO
+        setPostsAlreadyThere();
 
     }
 
+    private void setPostsAlreadyThere() {
+        Log.i("db","inititializing posts");
+        mFD.getReference("/AllPosts").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<DataSnapshot> initLIst = ((PostsRecyclerViewAdapter)posts.getAdapter()).mDS;
+                for(DataSnapshot i: snapshot.getChildren()){
+                    initLIst.add(0, snapshot);
+                }
+                posts.getAdapter().notifyDataSetChanged();
+                Log.i("db","inititializing posts");
+                Log.i("db","beginningList"+initLIst.size());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private class chilListener implements ChildEventListener{
+
+        @Override
+        public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+            Log.i("dbListen", "newPost");
+            ((PostsRecyclerViewAdapter)posts.getAdapter()).mDS.add(0, snapshot);
+            posts.getAdapter().notifyItemInserted(0);
+        }
+
+        @Override
+        public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+        }
+
+        @Override
+        public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+        }
+
+        @Override
+        public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError error) {
+
+        }
+    }
     private void setUpRecyclerView() {
         RecyclerView.LayoutManager mLM = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
         posts = (RecyclerView) findViewById(R.id.postScroll);
@@ -86,17 +121,18 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
         posts.setAdapter(new PostsRecyclerViewAdapter(this));
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if(FirebaseAuth.getInstance().getCurrentUser()==null){
-            startSignIn();//TODO sign in with google or something, use firebase assistant
-            //temp;
-            FirebaseAuth.getInstance().signInAnonymously();
-            ////FirebaseAuth.getInstance().updateCurrentUser(FirebaseAuth.getInstance().getCurrentUser());
-            //mFD.getReference("/Users/"+FirebaseAuth.getInstance().getCurrentUser().toString());
-        }
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        nav.setSelectedItemId(R.id.home);
+//        if(FirebaseAuth.getInstance().getCurrentUser()==null){
+//            startSignIn();//TODO sign in with google or something, use firebase assistant
+//            //temp;
+//            FirebaseAuth.getInstance().signInAnonymously();
+//            ////FirebaseAuth.getInstance().updateCurrentUser(FirebaseAuth.getInstance().getCurrentUser());
+//            //mFD.getReference("/Users/"+FirebaseAuth.getInstance().getCurrentUser().toString());
+//        }
+//    }
 //https://firebase.google.com/docs/auth/android/custom-auth
     private void startSignIn() {
     }
@@ -122,4 +158,16 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
 
             return ActivityWithMenu.setOptionsSelected(this, item);
         }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //nav.setSelectedItemId(R.id.home);TODO
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mFD.getReference("/AllPosts").removeEventListener(mPostListener);
+    }
 }
