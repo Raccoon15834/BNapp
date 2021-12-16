@@ -15,10 +15,13 @@ public abstract class ActivityWithMenu {
                 initiate(SpeakActivity.class, a);
                 return true;
             case R.id.memorize:
+                initiate(MemorizeActivity.class, a);
                 return true;
             case R.id.home:
+                initiate(MainActivity.class, a);
                 return true;
             case R.id.read:
+                initiate(ReadActivity.class, a);
                 return true;
             case R.id.write:
                 initiate(WriteActivity.class, a);

@@ -3,6 +3,7 @@ package das.anusha.bnapp;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.widget.ActionMenuView;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatImageButton;
@@ -52,15 +53,17 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
         setUpRecyclerView();
         nav =  (BottomNavigationView)findViewById(R.id.bottom_navigatin_view);
         nav.setSelectedItemId(R.id.home);
+        ((MenuBuilder)nav.getMenu()).setOptionalIconsVisible(true);
         nav.setOnItemSelectedListener(this);
 
+
         //set up database listener
-        mFD = FirebaseDatabase.getInstance();
+        //mFD = FirebaseDatabase.getInstance();
         mPostListener = new chilListener();
-        mFD.getReference("/AllPosts").addChildEventListener(mPostListener);
+        //mFD.getReference("/AllPosts").addChildEventListener(mPostListener);
 
         //add initial posts TODO
-        setPostsAlreadyThere();
+        //setPostsAlreadyThere();
 
     }
 

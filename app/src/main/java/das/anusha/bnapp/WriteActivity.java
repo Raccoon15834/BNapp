@@ -42,7 +42,7 @@ public class WriteActivity extends Activity implements NavigationBarView.OnItemS
 
         setUpUserName();
         setUpSubmissionChecker();//TODO ensure that it meets post requirements
-        mFD = FirebaseDatabase.getInstance();
+        //mFD = FirebaseDatabase.getInstance();
         //TODO just for now, clearing all inputs
 
         BottomNavigationView nav =  (BottomNavigationView)findViewById(R.id.bottom_navigatin_view);

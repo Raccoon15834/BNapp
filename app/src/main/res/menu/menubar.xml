@@ -9,8 +9,9 @@
         android:title="B"
         app:showAsAction="always"/>
     <item android:id="@+id/home"
-        android:title="C"
-        app:showAsAction="always"/>
+        android:title=""
+        android:icon="@drawable/raccoon2"
+        app:showAsAction="always" />
     <item android:id="@+id/read"
         android:title="D"
         app:showAsAction="always"/>
