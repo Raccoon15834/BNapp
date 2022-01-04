@@ -10,7 +10,7 @@
         app:showAsAction="always"/>
     <item android:id="@+id/home"
         android:title=""
-        android:icon="@drawable/raccoon2"
+        android:icon="@drawable/speak_icon"
         app:showAsAction="always" />
     <item android:id="@+id/read"
         android:title="D"

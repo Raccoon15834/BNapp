@@ -53,17 +53,17 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
         setUpRecyclerView();
         nav =  (BottomNavigationView)findViewById(R.id.bottom_navigatin_view);
         nav.setSelectedItemId(R.id.home);
-        ((MenuBuilder)nav.getMenu()).setOptionalIconsVisible(true);
+       // ((MenuBuilder)nav.getMenu()).setOptionalIconsVisible(true);
         nav.setOnItemSelectedListener(this);
 
 
         //set up database listener
-        //mFD = FirebaseDatabase.getInstance();
+        mFD = FirebaseDatabase.getInstance();
         mPostListener = new chilListener();
-        //mFD.getReference("/AllPosts").addChildEventListener(mPostListener);
+        mFD.getReference("/AllPosts").addChildEventListener(mPostListener);
 
         //add initial posts TODO
-        //setPostsAlreadyThere();
+        setPostsAlreadyThere();
 
     }
 

@@ -10,4 +10,10 @@
     <dimen name="btnHeight">40dp</dimen>
     <dimen name="shortAnswH">60sp</dimen>
     <dimen name="longAnswH">350sp</dimen>
+
+    <dimen name="lesstitletxt">25sp</dimen>
+    <dimen name="txtsize">18sp</dimen>
+    <dimen name="bigMargin">30dp</dimen>
+    <dimen name="lilMargin">15dp</dimen>
+    <dimen name="lessonFragHeight">150dp</dimen>
 </resources>

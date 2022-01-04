@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="lessontitle">
+        <item name="android:textSize"> @dimen/lesstitletxt</item>
+        <item name="android:textColor"> @color/redaccent</item>
+        <item name="android:padding"> @dimen/bigMargin</item>
+        <item name="layout_constraintLeft_toLeftOf">parent</item>
+        <item name="layout_constraintRight_toRightOf">parent</item>
+    </style>
+    <style name="lessontext">
+        <item name="android:textSize"> @dimen/txtsize</item>
+        <item name="android:textColor"> @color/black</item>
+        <item name="android:padding"> @dimen/bigMargin</item>
+        <item name="layout_constraintLeft_toLeftOf">parent</item>
+    </style>
+    <style name="lessonsubtitle">
+        <item name="android:textSize"> @dimen/txtsize</item>
+        <item name="android:textColor"> @color/orange</item>
+        <item name="android:paddingLeft"> @dimen/bigMargin</item>
+        <item name="layout_constraintLeft_toLeftOf">parent</item>
+        <item name="android:paddingTop">@dimen/bigMargin</item>
+    </style>
+</resources>

@@ -1,18 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="title1">Pronouns</string>
+    <string-array name="tags1">
+
+    </string-array>
     <integer-array name="pics1">
-        <item>2</item>
+        <item>@drawable/ami</item>
+        <item>@drawable/you</item>
+        <item>@drawable/amra</item>
     </integer-array>
-    <string name="deck1">
-    </string>
+    <string-array name="deck1">
+        <item>Ami</item>
+        <item>Tumi</item>
+        <item>Amra</item>
+    </string-array>
+
+    <string name="title2">Veggies</string>
+    <string-array name="tags2">
+
+    </string-array>
+    <integer-array name="pics2">
+        <item>@drawable/kumro</item>
+        <item>@drawable/sag</item>
+        <item>@drawable/shosha</item>
+    </integer-array>
+    <string-array name="deck2">
+        <item>Kumro</item>
+        <item>Sag</item>
+        <item>Shosha</item>
+    </string-array>
 
     <!--these 3 must be the same length-->
     <!--make sure all of the layouts have back buttons embedded-->
     <string-array name="speakLessonNames">
+        <item>Pronunciation</item>
+        <item>People &amp; Generalities</item>
+        <item>Verb Infinitives + Present Progressive</item>
+        <item>Questions &amp; Directions</item>
+        <item>Pronunciation</item>
+        <item>Other Verb Tenses</item>
     </string-array>
     <integer-array name="speakLayoutIds">
+        <item>@layout/less1</item>
     </integer-array>
     <integer-array name="speakImages">
+        <item>@drawable/amra</item>
     </integer-array>
+
 
 </resources>

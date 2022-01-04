@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/yellow">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1-PRONUNCIATION"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/lessontitle"
+        android:id="@+id/title1"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sub1.1"
+        app:layout_constraintTop_toBottomOf="@id/title1"
+        style="@style/lessonsubtitle"
+        android:text="Emphasized Consonants"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt1.1"
+        app:layout_constraintTop_toBottomOf="@id/sub1.1"
+        style="@style/lessontext"
+        android:text="With emphasized consonants you let your breath out producing a “h” sound. With light consonants you want to restrain your breath. Tap and hold on the examples"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txt1.1"
+        android:id="@+id/gall1.1"
+        android:orientation="vertical">
+
+    </LinearLayout>
+    <!--ADD BACK BTN!!-->
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

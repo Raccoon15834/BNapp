@@ -2,6 +2,7 @@ package das.anusha.bnapp;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,9 +25,12 @@ public class Flashcards extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.card);
 
-        int[] imgs = savedInstanceState.getIntArray("imgs");
-        String[] strs = savedInstanceState.getStringArray("strs");
+        Bundle b = getIntent().getExtras();
+        imgs = b.getIntArray("imgs");
+        strs = b.getStringArray("strs");
+        Log.i("cardData", imgs[0]+"at flashCardsONcreate");
         cardNums = imgs.length;
+        Log.i("cardData", ""+cardNums);
         currImg = (ImageView) findViewById(R.id.cardImg);
         currDef = (TextView) findViewById(R.id.cardStr);
 
@@ -38,6 +42,7 @@ public class Flashcards extends Activity {
     private void populateRandomCard() {
         currCard = (int)(Math.random()*cardNums);
         currImg.setImageResource(imgs[currCard]);
+        Log.i("cardData", imgs[currCard]+"");
         currDef.setText(strs[currCard]);
     }
 

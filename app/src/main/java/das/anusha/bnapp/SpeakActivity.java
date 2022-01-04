@@ -5,6 +5,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
@@ -46,8 +47,10 @@ public class SpeakActivity extends Activity implements SpeakLessonFragment.setSe
     @Override
     public void onSetSelect(int lay) {
         Intent starter = new Intent(getApplicationContext(), SpeakLesson.class);
-        Bundle extras = starter.getExtras();
-        extras.putInt("layout", lay);
+//        Bundle extras = new Bundle();
+//        extras.putInt("layout", lay);
+        starter.putExtra("layout", lay);
+        Log.i("speakDebug", lay+"");
         startActivity(starter);
     }
 
