@@ -75,7 +75,6 @@ public class Flashcards extends Activity {
         TransitionSet fader = new TransitionSet().addTransition(new Fade());
         TransitionManager.beginDelayedTransition(scrn, fader);
         currDef.setVisibility(View.GONE);
-        //----TESTING
 
         Animation fadeOut = new TranslateAnimation(0,0,0,5000);
         fadeOut.setDuration(300);
