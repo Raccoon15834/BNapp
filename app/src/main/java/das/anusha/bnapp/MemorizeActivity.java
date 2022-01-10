@@ -60,7 +60,7 @@ public class MemorizeActivity extends Activity implements FlashcardDeck.deckSele
             tags =res.getStringArray(res.getIdentifier("tags"+i, "array", p));
             TypedArray prePics =res.obtainTypedArray(res.getIdentifier("pics"+i, "array", p));
             pics = new int[prePics.length()];
-            for(int j=0; j<pics.length; j++) pics[i] = prePics.getResourceId(j, 0);
+            for(int j=0; j<pics.length; j++) pics[j] = prePics.getResourceId(j, 0);
             strs =res.getStringArray(res.getIdentifier("deck"+i, "array", p));
             FlashcardDeck myFrag = FlashcardDeck.newInstance(pics, strs, title, tags);
             //addFragment(pics, strs, title, tags);//TODO fix image recall

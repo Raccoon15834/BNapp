@@ -52,7 +52,7 @@ public class FlashcardDeck extends Fragment {
         //GridLayout.LayoutParams lp= new GridLayout.LayoutParams(GridLayout.spec(num/3), GridLayout.spec(num%3));
         GridLayout.LayoutParams lp= new GridLayout.LayoutParams(GridLayout.spec(num/3), GridLayout.spec(GridLayout.UNDEFINED,GridLayout.FILL,1f));
         lp.height = GridLayout.LayoutParams.WRAP_CONTENT;
-        lp.width = 0;
+        lp.width =0;
         myV.setLayoutParams(lp);
         return  myV;
     }
