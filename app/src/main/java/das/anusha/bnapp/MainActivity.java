@@ -57,13 +57,13 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
         nav.setOnItemSelectedListener(this);
 
 
-        //set up database listener
-        mFD = FirebaseDatabase.getInstance();
-        mPostListener = new chilListener();
-        mFD.getReference("/AllPosts").addChildEventListener(mPostListener);
-
-        //add initial posts TODO
-        setPostsAlreadyThere();
+//        //set up database listener
+//        mFD = FirebaseDatabase.getInstance();
+//        mPostListener = new chilListener();
+//        mFD.getReference("/AllPosts").addChildEventListener(mPostListener);
+//
+//        //add initial posts TODO
+//        setPostsAlreadyThere();
 
     }
 

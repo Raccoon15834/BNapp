@@ -1,6 +1,7 @@
 package das.anusha.bnapp;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
@@ -8,9 +9,14 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.annotation.Nullable;
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 
 public class fishCanvas extends View {
     Fish mFish;
+    VectorDrawableCompat lvlmap, lvls;
+    Resources res;
+    int[] mapXLoc;
+    int[][] lvlXYloc;
     int w, h;
     public fishCanvas(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -22,13 +28,20 @@ public class fishCanvas extends View {
         super.onLayout(changed, left, top, right, bottom);
         w = getWidth();
         h = getHeight();
-        //TODO add "rivers" with reading lvls
+        res = getResources();
+
+        lvlmap = VectorDrawableCompat.create(res, R.drawable.ic_lvlmap, null);
+        lvls = VectorDrawableCompat.create(res, R.drawable.ic_levelmarker, null);
+        mapXLoc = new int[]{0,w};
+        lvlmap.setBounds(0, h/4, w, 5*h/8);
+        //TODO add "level" map
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        mFish.draw(canvas);
+        //mFish.draw(canvas);
+        lvlmap.draw(canvas);
 
         invalidate();
     }
