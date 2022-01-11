@@ -11,22 +11,22 @@ public class Fish extends RectF {
     Resources res;
     Bitmap self;
     int h, w;
-    public Fish(Resources res){
+    int x, y;
+    public Fish(Resources res, int x, int y){
         this.res = res;
-//        Drawable d= res.getDrawable(R.id.ic_fish);
-//        self = drawableToBitmap(d);
-//        h = self.getHeight();
-//        w = self.getHeight();
+        Drawable d= res.getDrawable(R.drawable.ic_levelmarker);
+        self = drawableToBitmap(d);
+        h = self.getHeight();
+        w = self.getHeight();
+        this.x = x;
+        this.y = y;
     }
 
-    public void trackRight(){
-
-    }
     public void draw(Canvas canvas){
         //can call offset(x, y) at an time resetting fishes position --- here or at track right
 
-        //Rect src = new Rect() // Frame of bitmap
-        //canvas.drawBitmap(self, src, this, null);
+        Rect src = new Rect(x, y, x+w, y+h); // Frame of bitmap
+        canvas.drawBitmap(self, src, this, null);
     }
     public static Bitmap drawableToBitmap (Drawable drawable) {
         Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
