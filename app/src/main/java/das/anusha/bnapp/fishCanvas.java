@@ -23,7 +23,8 @@ public class fishCanvas extends View {
     Resources res;
     int numOfLvls = 20;//must be multiple of 6?
     int numOfMaps;
-    int[][] lvlXYloc;
+    //int[][] lvlXYloc;
+    Fish[] lvls;
     int w, h;
 
     public fishCanvas(Context context, @Nullable AttributeSet attrs) {
@@ -47,58 +48,61 @@ public class fishCanvas extends View {
         int heightavg = h/4;
         //STATIC ORIGINAL POSITIONS
         int[][] OGset= new int[][]{{20,heightavg},{20,heightavg},{50,heightavg},{80,heightavg},{110,heightavg},{140,heightavg}};
-        lvlXYloc = new int[numOfLvls][2];
-        for(int[] i: lvlXYloc){
+        //lvlXYloc = new int[numOfLvls][2];
+        lvls = new Fish[numOfLvls];
+        int indx = 0;
+        for(Fish i: lvls){
             //initialize "fishes"
+            i = new Fish(res, OGset[indx][0], OGset[indx][1]);
+            indx++;
+            indx = indx%6;
         }
 
         //TODO add "level" map
 
     }
 
-
+    private float xmove = 0;
+    private float xset = 0;
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        canvas.translate(xset+xmove, 0);
         for(VectorDrawableCompat v: lvlmaps){
             v.draw(canvas);
         }
-
         invalidate();
     }
-    private int mActivePointerId = INVALID_POINTER_ID;
+    private float lastTouchX=0;
     public boolean onTouchEvent(MotionEvent event) {
         int action = event.getAction();
         float x, y;
-        float lastTouchX=0;
         if(action==MotionEvent.ACTION_DOWN){
-            final int pointerIndex = MotionEventCompat.getActionIndex(event);
-            lastTouchX = MotionEventCompat.getX(event, pointerIndex);
-            // Save the ID of this pointer (for dragging)
-            mActivePointerId = MotionEventCompat.getPointerId(event, 0);
+            lastTouchX = event.getX();
         }
         if(action==MotionEvent.ACTION_MOVE){
-            final int pointerIndex =
-                    MotionEventCompat.findPointerIndex(event, mActivePointerId);
-
-            x = MotionEventCompat.getX(event, pointerIndex);
-           // x = event.getX();
-            //y = event.getY();
-            lvlMapoffSetBounds(x-lastTouchX);
-            Log.i("readdebug", "dragging "+(x-lastTouchX));
+            x = event.getX();
+            lvlMapoffSetBounds(x-lastTouchX);;
+        }
+        if(action==MotionEvent.ACTION_UP){
+            lastTouchX = 0;
+            xset += xmove;
+            xmove = 0;
         }
         return true;
     }
 
     private void lvlMapoffSetBounds(float x) {
-//        Rect farLeft = lvlmaps[0].getBounds();
-//        if(farLeft.left<=0 && x<0) return;
-//        Rect farRight = lvlmaps[numOfMaps-1].getBounds();
-//        if(farLeft.left>=0 && x>0) return;
-        for(VectorDrawableCompat v: lvlmaps){
-            Rect mB = v.getBounds();
-            mB.offset((int)x,0);
-            v.setBounds(mB);
+        Log.i("read","setx"+xset);
+        if(-xset-x<0){
+            x=0;
+            xset += xmove;
         }
+        if (-xset-x>w*(numOfMaps-1)){
+            x=0;
+            xset += xmove;
+        }
+        //TODO fix
+        xmove = x;
     }
 }
