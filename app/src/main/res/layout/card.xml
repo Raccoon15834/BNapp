@@ -9,7 +9,10 @@
         android:layout_height="@dimen/btnHeight"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:id="@+id/back"/>
+        android:id="@+id/back"
+        android:background="@null"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_back_arrow_icon"/>
     <androidx.constraintlayout.widget.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

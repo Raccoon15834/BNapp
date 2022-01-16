@@ -53,39 +53,40 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
         setUpRecyclerView();
         nav =  (BottomNavigationView)findViewById(R.id.bottom_navigatin_view);
         nav.setSelectedItemId(R.id.home);
-       // ((MenuBuilder)nav.getMenu()).setOptionalIconsVisible(true);
+        nav.setItemIconTintList(null);
         nav.setOnItemSelectedListener(this);
 
 
 //        //set up database listener
-//        mFD = FirebaseDatabase.getInstance();
-//        mPostListener = new chilListener();
-//        mFD.getReference("/AllPosts").addChildEventListener(mPostListener);
+        mFD = FirebaseDatabase.getInstance();
+        mPostListener = new chilListener();
+        mFD.getReference("/AllPosts").addChildEventListener(mPostListener);
 //
 //        //add initial posts TODO
-//        setPostsAlreadyThere();
+        setPostsAlreadyThere();
 
     }
 
     private void setPostsAlreadyThere() {
-        Log.i("db","inititializing posts");
+        Log.i("dbListen"," posts");
         mFD.getReference("/AllPosts").addListenerForSingleValueEvent(new ValueEventListener() {
+
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ArrayList<DataSnapshot> initLIst = ((PostsRecyclerViewAdapter)posts.getAdapter()).mDS;
                 for(DataSnapshot i: snapshot.getChildren()){
                     initLIst.add(0, snapshot);
                 }
-                posts.getAdapter().notifyDataSetChanged();
-                Log.i("db","inititializing posts");
-                Log.i("db","beginningList"+initLIst.size());
+                Log.i("dbListen","inititializing posts");
+                Log.i("dbListen","beginningList"+initLIst.size());
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Log.i("dbListen","inititializing posts??");
             }
         });
+        posts.getAdapter().notifyDataSetChanged();
     }
 
     private class chilListener implements ChildEventListener{

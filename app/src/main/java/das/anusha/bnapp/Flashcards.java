@@ -47,9 +47,7 @@ public class Flashcards extends Activity {
         Bundle b = getIntent().getExtras();
         imgs = b.getIntArray("imgs");
         strs = b.getStringArray("strs");
-        Log.i("cardData", imgs[0]+"at flashCardsONcreate");
         cardNums = imgs.length;
-        Log.i("cardData", ""+cardNums);
         currImg = (ImageView) findViewById(R.id.cardImg);
         currDef = (TextView) findViewById(R.id.cardStr);
 
@@ -57,8 +55,6 @@ public class Flashcards extends Activity {
         populateRandomCard();
         setUpClicker();
         setUpBackBtn(R.id.back, MemorizeActivity.class, this);
-
-        //currImg.animationlistener(new Animation.AnimationListener())
     }
 
     private void setUpBackBtn(int back, Class c, Activity a) {

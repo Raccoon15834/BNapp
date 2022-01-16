@@ -48,6 +48,7 @@ public class WriteActivity extends Activity implements NavigationBarView.OnItemS
         BottomNavigationView nav =  (BottomNavigationView)findViewById(R.id.bottom_navigatin_view);
         nav.setSelectedItemId(R.id.write);
         nav.setOnItemSelectedListener(this);
+        nav.setItemIconTintList(null);
     }
 
 

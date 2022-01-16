@@ -7,9 +7,8 @@
         android:id="@+id/memorizeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding"
+        style="@style/pagetitle"
         android:text="@string/memorizeTitle"
-        android:textSize="@dimen/subtitletxt"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
     <androidx.constraintlayout.widget.Guideline
@@ -21,9 +20,12 @@
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/flashcardSearch"
         android:layout_width="wrap_content"
+        android:src="@drawable/ic_search_icon"
         android:layout_height="@dimen/btnHeight"
         app:layout_constraintBottom_toTopOf="@id/buttonLine"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:background="@null"
+        android:layout_marginLeft="10dp"/>
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/decksSearchBox"
         android:layout_width="match_parent"

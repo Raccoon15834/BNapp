@@ -2,9 +2,11 @@
 <resources>
     <dimen name="padding">10dp</dimen>
 
-    <dimen name="titletxt">45dp</dimen>
-    <dimen name="subtitletxt">40dp</dimen>
-    <dimen name="standardtxt">20dp</dimen>
+    <dimen name="titletxt">40sp</dimen>
+    <dimen name="subtittxt">22sp</dimen>
+    <dimen name="txtsize">18sp</dimen>
+    <dimen name="bigMargin">30dp</dimen>
+    <dimen name="lilMargin">15dp</dimen>
 
     <dimen name="menusize">56dp</dimen>
     <dimen name="btnHeight">40dp</dimen>
@@ -12,8 +14,5 @@
     <dimen name="longAnswH">350sp</dimen>
 
     <dimen name="lesstitletxt">25sp</dimen>
-    <dimen name="txtsize">18sp</dimen>
-    <dimen name="bigMargin">30dp</dimen>
-    <dimen name="lilMargin">15dp</dimen>
     <dimen name="lessonFragHeight">150dp</dimen>
 </resources>

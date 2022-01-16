@@ -7,9 +7,8 @@
         android:id="@+id/readTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding"
+        style="@style/pagetitle"
         android:text="@string/readTitle"
-        android:textSize="@dimen/subtitletxt"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
     <androidx.constraintlayout.widget.Guideline
@@ -29,13 +28,16 @@
         android:id="@+id/symbols"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/btnHeight"
+        android:src="@drawable/ic_symbol_cheat_sheet_icon"
         android:layout_marginLeft="@dimen/padding"
         app:layout_constraintBottom_toTopOf="@id/buttonLine"
-        app:layout_constraintLeft_toRightOf="@id/tips" />
+        app:layout_constraintLeft_toRightOf="@id/tips"
+        android:background="@null"/>
     <view
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="@id/symbols"
+        android:id="@+id/lvlMap"
         class="das.anusha.bnapp.fishCanvas"
         />
     <com.google.android.material.bottomnavigation.BottomNavigationView

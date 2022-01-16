@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class SpeakLessonFragment extends Fragment {
-    int img, layId;
+    int layId;
     String title;
     private setSelector myListener;
     public interface setSelector{
@@ -25,9 +25,8 @@ public class SpeakLessonFragment extends Fragment {
         super.onAttach(context);
         this.myListener = (setSelector) context;
     }
-    public static SpeakLessonFragment newInstance(int img, String title, int layId) {
+    public static SpeakLessonFragment newInstance(String title, int layId) {
         SpeakLessonFragment fragment = new SpeakLessonFragment();
-        fragment.img = img;
         fragment.title = title;
         fragment.layId = layId;
         return fragment;
@@ -44,8 +43,6 @@ public class SpeakLessonFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         TextView titleView = (TextView) view.findViewById(R.id.lessonTitle);
         titleView.setText(title);
-        ImageView imgView = (ImageView) view.findViewById(R.id.lessonImage);
-        imgView.setImageResource(img);
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

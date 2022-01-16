@@ -4,10 +4,10 @@
         android:id="@+id/checked"
         android:drawable="@drawable/ic_speakuncheck"
         android:state_checked="true" />
-
     <item
         android:id="@+id/unchecked"
-        android:drawable="@drawable/ic_speakcheck" />
+        android:drawable="@drawable/ic_speakcheck"
+        android:state_checked="false" />
 
     <transition
         android:drawable="@drawable/speakvector_tocheck"

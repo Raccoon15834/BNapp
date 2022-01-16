@@ -44,9 +44,97 @@
     <integer-array name="speakLayoutIds">
         <item>@layout/less1</item>
     </integer-array>
-    <integer-array name="speakImages">
-        <item>@drawable/amra</item>
-    </integer-array>
+
+    <string-array name="reader1">
+        <item>The Number 1 Text</item>
+        <item>directions, directions, directions</item>
+        <item>asdfjhaljdshfajdhflajdf</item>
+    </string-array>
+    <string-array name="reader2">
+        <item>The Number 2 Text</item>
+        <item>directions, directions, directions</item>
+        <item>asdfjhaljdshfajdhflajdf</item>
+    </string-array>
+    <string-array name="reader3">
+        <item>The Number 3 Text</item>
+        <item>directions, directions, directions</item>
+        <item>asdfjhaljdshfajdhflajdf</item>
+    </string-array>
+    <string-array name="reader4">
+        <item>The Number 4 Text</item>
+        <item>directions, directions, directions</item>
+        <item>asdfjhaljdshfajdhflajdf</item>
+    </string-array>
+    <string-array name="reader5">
+        <item>The Number 5 Text</item>
+        <item>directions, directions, directions</item>
+        <item>asdfjhaljdshfajdhflajdf</item>
+    </string-array>
+    <string-array name="reader6">
+        <item>The Number 6 Text</item>
+        <item>directions, directions, directions</item>
+        <item>asdfjhaljdshfajdhflajdf</item>
+    </string-array>
+    <string-array name="reader7">
+        <item>The Number 7 Text</item>
+        <item>directions, directions, directions</item>
+        <item>asdfjhaljdshfajdhflajdf</item>
+    </string-array>
+    <string-array name="reader8">
+        <item>The Number 1 Text</item>
+        <item>directions, directions, directions</item>
+        <item>asdfjhaljdshfajdhflajdf</item>
+    </string-array>
+    <string-array name="reader9">
+        <item>The Number 1 Text</item>
+        <item>directions, directions, directions</item>
+        <item>asdfjhaljdshfajdhflajdf</item>
+    </string-array>
+    <string-array name="reader10">
+        <item>The Number 1 Text</item>
+        <item>directions, directions, directions</item>
+        <item>asdfjhaljdshfajdhflajdf</item>
+    </string-array>
+    <string-array name="reader11">
+        <item>The Number 1 Text</item>
+        <item>directions, directions, directions</item>
+        <item>asdfjhaljdshfajdhflajdf</item>
+    </string-array>
+    <string-array name="reader12">
+        <item>The Number 1 Text</item>
+        <item>directions, directions, directions</item>
+        <item>asdfjhaljdshfajdhflajdf</item>
+    </string-array>
+    <string-array name="reader13">
+        <item>The Number 1 Text</item>
+        <item>directions, directions, directions</item>
+        <item>asdfjhaljdshfajdhflajdf</item>
+    </string-array>
+    <string-array name="reader14">
+        <item>The Number 1 Text</item>
+        <item>directions, directions, directions</item>
+        <item>asdfjhaljdshfajdhflajdf</item>
+    </string-array>
+    <string-array name="reader15">
+        <item>The Number 1 Text</item>
+        <item>directions, directions, directions</item>
+        <item>asdfjhaljdshfajdhflajdf</item>
+    </string-array>
+    <string-array name="reader16">
+        <item>The Number 1 Text</item>
+        <item>directions, directions, directions</item>
+        <item>asdfjhaljdshfajdhflajdf</item>
+    </string-array>
+    <string-array name="reader17">
+        <item>The Number 1 Text</item>
+        <item>directions, directions, directions</item>
+        <item>asdfjhaljdshfajdhflajdf</item>
+    </string-array>
+    <string-array name="reader18">
+        <item>The Number 1 Text</item>
+        <item>directions, directions, directions</item>
+        <item>asdfjhaljdshfajdhflajdf</item>
+    </string-array>
 
 
 </resources>

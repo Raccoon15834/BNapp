@@ -8,9 +8,8 @@
         android:id="@+id/writeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding"
+        style="@style/pagetitle"
         android:text="@string/writeTitle"
-        android:textSize="@dimen/subtitletxt"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
     <androidx.constraintlayout.widget.Guideline
@@ -32,7 +31,10 @@
         android:layout_height="@dimen/btnHeight"
         android:layout_marginLeft="@dimen/padding"
         app:layout_constraintBottom_toTopOf="@id/buttonLine"
-        app:layout_constraintLeft_toRightOf="@id/about" />
+        app:layout_constraintLeft_toRightOf="@id/about"
+        android:src="@drawable/ic_submit_icon"
+        android:background="@null"
+        />
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -74,7 +76,7 @@
                     android:id="@+id/anonOption"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/textPost"
-                    android:textSize="@dimen/subtitletxt"
+                    android:textSize="@dimen/subtittxt"
                     android:text="@string/anonOption"/>
                 <androidx.appcompat.widget.SwitchCompat
                     app:layout_constraintLeft_toRightOf="@id/anonOption"

@@ -19,11 +19,11 @@
         android:id="@+id/banner"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bannerline"
-        android:background="@color/orange">
-        <TextView
+        android:background="@drawable/ic_homebg">
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bangla Grind"
+            android:src="@drawable/ic_logoicon"
             android:textSize="@dimen/titletxt"
             android:paddingLeft="@dimen/padding"
             android:paddingBottom="@dimen/titletxt"
@@ -41,30 +41,25 @@
     <androidx.appcompat.widget.AppCompatImageButton
         android:layout_width="wrap_content"
         android:layout_height="@dimen/btnHeight"
-        android:id="@+id/settings"
+        android:id="@+id/add"
+        android:src="@drawable/ic_cancel_icon"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bannerline"
         app:layout_constraintVertical_bias="1.1"
         app:layout_constraintLeft_toRightOf="@id/about"
-        android:layout_marginLeft="@dimen/padding" />
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/btnHeight"
-        android:id="@+id/add"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bannerline"
-        app:layout_constraintVertical_bias="1.1"
-        app:layout_constraintLeft_toRightOf="@id/settings"
-        android:layout_marginLeft="@dimen/padding"/>
+        android:layout_marginLeft="@dimen/padding"
+        android:background="@null"/>
     <androidx.appcompat.widget.AppCompatImageButton
         android:layout_width="wrap_content"
         android:layout_height="@dimen/btnHeight"
         android:id="@+id/search"
+        android:src="@drawable/ic_search_icon"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bannerline"
         app:layout_constraintVertical_bias="1.1"
         app:layout_constraintLeft_toRightOf="@id/add"
-        android:layout_marginLeft="@dimen/padding"/>
+        android:layout_marginLeft="@dimen/padding"
+        android:background="@null"/>
     <!-- expands into type bar, also sort by recent, likes, mine, my liked-->
     <!--TODO button stays on the middle of the line??-->
     <!--buttonshape https://www.codebrainer.com/blog/13-designs-for-buttons-every-android-beginner-should-know-->
@@ -81,7 +76,6 @@
         android:id="@+id/bottom_navigatin_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menubar"
         />

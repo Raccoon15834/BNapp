@@ -40,13 +40,6 @@ public class MemorizeActivity extends Activity implements FlashcardDeck.deckSele
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memorize);
 
-        //2 TODO ENTIRETY of read canvas
-        //3 TODO read samples (can stay dummies)
-        //5 TODO image option in write, audio option in flashcards--imgs not appearing from array, also speak frag imgs, also lesson layout ints!
-        //1 TODO search function in flashcards
-
-        // add all title, tags, pics, strs, --- finish lessons,settings, about --- all mini buttons, nav bar - special animations -- aesthetic
-        //organize all resources, fix database
         num =0;
         Resources res = getResources();
         String p = getPackageName();
@@ -63,7 +56,6 @@ public class MemorizeActivity extends Activity implements FlashcardDeck.deckSele
             for(int j=0; j<pics.length; j++) pics[j] = prePics.getResourceId(j, 0);
             strs =res.getStringArray(res.getIdentifier("deck"+i, "array", p));
             FlashcardDeck myFrag = FlashcardDeck.newInstance(pics, strs, title, tags);
-            //addFragment(pics, strs, title, tags);//TODO fix image recall
             decks.add(myFrag);
             i+=1;
             Log.i("cardData", pics[0]+"at retrieving resources Memorize");
@@ -78,6 +70,7 @@ public class MemorizeActivity extends Activity implements FlashcardDeck.deckSele
         BottomNavigationView nav =  (BottomNavigationView)findViewById(R.id.bottom_navigatin_view);
         nav.setSelectedItemId(R.id.memorize);
         nav.setOnItemSelectedListener(this);
+        nav.setItemIconTintList(null);
     }
 
     private void setUpSearchFunction(AppCompatImageButton btn, EditText box) {
@@ -147,15 +140,7 @@ public class MemorizeActivity extends Activity implements FlashcardDeck.deckSele
         }
     }
 
-//    private void addFragment(int[] pics, String[] strs, String title, String[] tags) {
-//        Fragment myFrag = FlashcardDeck.newInstance(pics, strs, title, tags, num);
-//        decks.add(myFrag);
-//        android.app.FragmentTransaction ft = getFragmentManager().beginTransaction();
-//        ft.add(R.id.deckFrags, myFrag, title).commit();
-//        num++;
-//       // View myV = View.inflate();
-//
-//    }
+
 
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
@@ -165,7 +150,6 @@ public class MemorizeActivity extends Activity implements FlashcardDeck.deckSele
     @Override
     public void onDeckSelect(int[] imgs, String[] strs) {
         Intent starter = new Intent(getApplicationContext(), Flashcards.class);
-        Log.i("cardData", imgs[0]+"at onDeckSelect-Memorize");
         Bundle extras = new Bundle();
         extras.putIntArray("imgs", imgs);
         extras.putStringArray("strs", strs);
