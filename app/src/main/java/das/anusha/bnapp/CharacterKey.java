@@ -2,9 +2,11 @@ package das.anusha.bnapp;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,25 +31,26 @@ public class CharacterKey extends Activity {
                 ActivityWithMenu.initiate(ReadActivity.class, a);
             }
         });
-        int[] chars = getResources().getIntArray(R.array.charphotos);
-        int[] sounds= getResources().getIntArray(R.array.charsounds);;
+        TypedArray chars= getResources().obtainTypedArray(R.array.charphotos);
+        TypedArray sounds= getResources().obtainTypedArray(R.array.charsounds);
 
         GridView gridView = (GridView)findViewById(R.id.symbols);
         CharacterKey.MyCharAdapter baseAdapter = new CharacterKey.MyCharAdapter(this, chars, sounds);
         gridView.setAdapter(baseAdapter);
+        gridView.setZ(10);
     }
 
     private class MyCharAdapter extends BaseAdapter {
-        int[] chars, sounds;
+        TypedArray chars, sounds;
 
-        public MyCharAdapter(CharacterKey characterKey, int[] chars, int[] sounds) {
+        public MyCharAdapter(CharacterKey characterKey, TypedArray chars, TypedArray sounds) {
             this.chars = chars;
             this.sounds = sounds;
         }
 
         @Override
         public int getCount() {
-            return 0;
+            return chars.length();
         }
 
         @Override
@@ -57,16 +60,17 @@ public class CharacterKey extends Activity {
 
         @Override
         public long getItemId(int i) {
-            return chars.length;
+            return 0;
         }
 
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
             LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.charview, null);
-            ImageView charimg = (ImageView) findViewById(R.id.charview);
-            charimg.setImageResource(chars[i]);
-            MediaPlayer firstSound = MediaPlayer.create(CharacterKey.this, sounds[i]);
+            Log.i("charlog","here");
+            ImageView charimg = (ImageView) view.findViewById(R.id.charviewphoto);
+            charimg.setImageResource(chars.getResourceId(i, 0));
+            MediaPlayer firstSound = MediaPlayer.create(CharacterKey.this, sounds.getResourceId(i, 0));
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/symbols"
         android:orientation="horizontal"
-        android:columnCount="2">
+        android:numColumns="4">
 
     </GridView>
 

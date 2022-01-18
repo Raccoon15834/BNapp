@@ -8,11 +8,11 @@
         <item>@drawable/let5</item>
     </integer-array>
     <integer-array name="charsounds">
-
-
-
-
-
+        <item>@raw/s1</item>
+        <item>@raw/s2</item>
+        <item>@raw/s3</item>
+        <item>@raw/s4</item>
+        <item>@raw/s5</item>
     </integer-array>
 
     <string name="title1">Pronouns</string>
