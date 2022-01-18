@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <integer-array name="charphotos">
+        <item>@drawable/let1</item>
+        <item>@drawable/let2</item>
+        <item>@drawable/let3</item>
+        <item>@drawable/let4</item>
+        <item>@drawable/let5</item>
+    </integer-array>
+    <integer-array name="charsounds">
+
+
+
+
+
+    </integer-array>
+
     <string name="title1">Pronouns</string>
     <string-array name="tags1">
 

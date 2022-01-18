@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/vid1.1"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:columnCount="2">
 
         </GridView>

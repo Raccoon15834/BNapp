@@ -82,6 +82,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>
         </activity>
+        <activity
+            android:name=".CharacterKey"
+            android:label="Character Key"
+            android:parentActivityName=".ReadActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ReadActivity"/>
+        </activity>
     </application>
 
 </manifest>

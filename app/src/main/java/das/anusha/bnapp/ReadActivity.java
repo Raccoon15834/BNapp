@@ -6,9 +6,11 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageButton;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -38,6 +40,15 @@ public class ReadActivity extends Activity implements NavigationBarView.OnItemSe
         }
         fishCanvas mFC = (fishCanvas)findViewById(R.id.lvlMap);
         mFC.setNumOfLvls(i-1);
+
+        AppCompatImageButton toChars = (AppCompatImageButton)findViewById(R.id.symbols);
+        Activity a = this;
+        toChars.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ActivityWithMenu.initiate(CharacterKey.class, a);
+            }
+        });
     }
 
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
