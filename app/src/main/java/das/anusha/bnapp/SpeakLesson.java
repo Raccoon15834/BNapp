@@ -92,13 +92,13 @@ public class SpeakLesson extends Activity {
             view = inflater.inflate(R.layout.vidfrag, null);
 
             AppCompatImageButton btn1 = (AppCompatImageButton) view.findViewById(R.id.btnplay);
-            String vidPath1 = "android.resource://" + getPackageName() + "/"+R.raw.bari;
+            String vidPath1 = "android.resource://" + getPackageName() + "/"+ items.getResourceId(i,0);
             Log.i("spkdebug", vidPath1);
             Uri uri = Uri.parse(vidPath1);
             VideoView mv1 = (VideoView) view.findViewById(R.id.vid);
 
             mv1.setVideoURI(uri);
-            //mv1.setVideoURI(Uri.parse("android.resource://das.anusha.bnapp/"+R.raw.bari));  VIDPATH REPLACE items.getResourceId(i,0)
+           // mv1.setVideoURI(Uri.parse("android.resource://das.anusha.bnapp/"+R.raw.bari)); // VIDPATH REPLACE items.getResourceId(i,0)
             btn1.setZ(10);
             btn1.setOnClickListener(new View.OnClickListener() {
                 @Override

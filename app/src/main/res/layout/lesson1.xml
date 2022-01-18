@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/vid1.1"
             android:orientation="horizontal"
-            android:columnCount="2">
+            android:numColumns="2">
 
         </GridView>
     </LinearLayout>
