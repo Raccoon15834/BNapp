@@ -3,21 +3,44 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/postFrag">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/title"
-        style="@style/lessonsubtitle"
-        app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/name"
-        style="@style/lessontext"
-        app:layout_constraintTop_toBottomOf="@id/title" />
+    android:id="@+id/postFrag"
+    android:layout_margin="2dp"
+    android:background="@color/yellow">
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/name"/>
+        android:id="@+id/postimg"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/gapmargin"
+        app:layout_constraintTop_toBottomOf="@id/postimg"
+        android:background="@color/redaccent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/title"
+            style="@style/lessonsubtitle"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@id/like"
+            android:layout_alignParentTop="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/name"
+            android:layout_below="@id/title"
+            style="@style/lessontext"
+            android:layout_toLeftOf="@id/like"
+
+            android:layout_alignParentLeft="true"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:id="@+id/like"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/ic_baseline_thumb_up_24"/>
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

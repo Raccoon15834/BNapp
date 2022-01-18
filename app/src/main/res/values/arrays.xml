@@ -15,20 +15,80 @@
         <item>Amra</item>
     </string-array>
 
-    <string name="title2">Veggies</string>
+    <string name="title2">Pantry</string>
     <string-array name="tags2">
 
     </string-array>
     <integer-array name="pics2">
-        <item>@drawable/kumro</item>
-        <item>@drawable/sag</item>
-        <item>@drawable/shosha</item>
+        <item>@drawable/spinach</item>
+        <item>@drawable/pmp</item>
+        <item>@drawable/ptt</item>
+        <item>@drawable/carrot</item>
+        <item>@drawable/onion</item>
+        <item>@drawable/salt</item>
+        <item>@drawable/garlic</item>
+        <item>@drawable/corn</item>
+        <item>@drawable/banana</item>
+        <item>@drawable/bpepper</item>
+        <item>@drawable/grape</item>
+        <item>@drawable/cucumber</item>
+        <item>@drawable/lemon</item>
+        <item>@drawable/sugar</item>
+        <item>@drawable/ginger</item>
     </integer-array>
     <string-array name="deck2">
-        <item>Kumro</item>
         <item>Sak [shag] শাক</item>
-        <item>Shosha</item>
+        <item>Kumro[kum-ro] কুমড়া</item>
+        <item>Aloo [a-lu] আলু</item>
+        <item>Gajor [ga-jor] গাজর</item>
+        <item>Pyaj [pẽ-yaj] পেঁয়াজ</item>
+        <item>Noon [nun] নুন </item>
+        <item>Roshun [ro-šun] রসুন </item>
+        <item>Bhutta [bhut-ta] ভুট্টা </item>
+        <item>Kola[kɔ-la] কলা </item>
+        <item>Gol morij [gol mo-rič] গোলমরিচ</item>
+        <item>Angur [aŋ-gur] আঙ্গুর</item>
+        <item>Shosha [šɔ-ša] শসা</item>
+        <item>Lebu [le-bu] লেবু</item>
+        <item>Chini [či-ni] চিনি </item>
+        <item>Adha [a-ða] আদা</item>
     </string-array>
+    <string name="title3">Adjectives</string>
+    <string-array name="tags3">
+
+    </string-array>
+    <integer-array name="pics3">
+        <item>@drawable/spicy</item>
+        <item>@drawable/sweet</item>
+        <item>@drawable/tallshort</item>
+        <item>@drawable/cold</item>
+        <item>@drawable/biglittle</item>
+        <item>@drawable/hot</item>
+        <item>@drawable/empty</item>
+        <item>@drawable/full</item>
+        <item>@drawable/closed</item>
+        <item>@drawable/soft </item>
+        <item>@drawable/hard</item>
+        <item>@drawable/sharp </item>
+        <item>@drawable/open</item>
+    </integer-array>
+    <string-array name="deck3">
+        <item>Jhal [jhal] ঝাল </item>
+        <item>Misti [miš-ti] মিষ্টি </item>
+        <item>Lomba [lɔm-ba] লম্বা </item>
+        <item>Thanda [than-da] ঠান্ডা </item>
+        <item>Boro[a-ða] বড়ো ; Chhoto [čho-to] ছোট </item>
+        <item>Gorom [gɔ-rɔm] গরম </item>
+        <item>Khali [kha-li] খালি </item>
+        <item>Bhora[bhɔ-ra] ভরা</item>
+        <item>Bondo [bɔn-ðho] বন্ধ </item>
+        <item>Norom[nɔ-rɔm] নরম</item>
+        <item>Shokto [šɔk-θo] শক্ত</item>
+        <item>Dharalo [ðha-ra-lo] ধারালো</item>
+        <item>Khola [kho-la] খোলা</item>
+    </string-array>
+
+
 
 
     <!--these 3 must be the same length-->

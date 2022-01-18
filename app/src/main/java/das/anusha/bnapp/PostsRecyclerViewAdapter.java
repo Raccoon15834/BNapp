@@ -1,6 +1,8 @@
 package das.anusha.bnapp;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +19,8 @@ import com.google.firebase.database.DataSnapshot;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
+
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 public class PostsRecyclerViewAdapter extends RecyclerView.Adapter {
     private Context context;
@@ -37,6 +41,7 @@ public class PostsRecyclerViewAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         PostData pdtemp = mDS.get(position).getValue(PostData.class);
         ((mViewHolder) holder).setData(pdtemp); // gives holder with position data
+        holder.itemView.setOnClickListener(new postListner(pdtemp));
     }
 
     @Override
@@ -57,6 +62,22 @@ public class PostsRecyclerViewAdapter extends RecyclerView.Adapter {
             fragData = pd;
             u.setText(pd.getName());
             t.setText(pd.getTitle());
+        }
+    }
+
+    private class postListner implements View.OnClickListener {
+        PostData mpd;
+        public postListner(PostData mpd){
+            this.mpd = mpd;
+        }
+        @Override
+        public void onClick(View view) {
+            Intent starter = new Intent(context, PostExpanded.class);
+            Bundle extras = new Bundle();
+            extras.putString("ptitle",mpd.getTitle());
+            extras.putString("pname",mpd.getName());
+            starter.putExtras(extras);
+            context.startActivity(starter);
         }
     }
 
