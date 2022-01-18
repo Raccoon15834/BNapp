@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -23,13 +24,16 @@ public class SpeakActivity extends Activity implements SpeakLessonFragment.setSe
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_speak);
-        //TODO add 8 lesson fragments by iterating through array of its looks,
-        // embedding videos https://www.c-sharpcorner.com/article/adding-video-to-an-android-application/
+
         String[] titles = getResources().getStringArray(R.array.speakLessonNames);
-        int[] lays = getResources().getIntArray(R.array.speakLayoutIds);
-        for(int i=0; i<lays.length;i++){
-            addFragment(titles[i], lays[i]);
+        //int[] lays = getResources().getIntArray(R.array.speakLayoutIds);
+        TypedArray lays = getResources().obtainTypedArray(R.array.speakLayoutIds);
+
+        for(int i=0; i<lays.length();i++){
+            addFragment(titles[i], lays.getResourceId(i, 0));
+            //Log.i("speakdebug",lays[i]+"-layoutfirst" );
         }
+        lays.recycle();//whaat?
 
         BottomNavigationView nav =  (BottomNavigationView)findViewById(R.id.bottom_navigatin_view);
         nav.setOnItemSelectedListener(this);
@@ -47,10 +51,10 @@ public class SpeakActivity extends Activity implements SpeakLessonFragment.setSe
     @Override
     public void onSetSelect(int lay) {
         Intent starter = new Intent(getApplicationContext(), SpeakLesson.class);
-//        Bundle extras = new Bundle();
-//        extras.putInt("layout", lay);
-        starter.putExtra("layout", lay);
-        Log.i("speakDebug", lay+"");
+        Bundle extras = new Bundle();
+        extras.putInt("layout", lay);
+        Log.i("speakdebug",lay+"-layoutbefore" );
+        starter.putExtras(extras);
         startActivity(starter);
     }
 

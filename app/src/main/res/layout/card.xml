@@ -36,6 +36,7 @@
         app:layout_constraintRight_toRightOf="parent"
         android:padding="@dimen/padding"
         android:id="@+id/cardStr"
+        style="@style/lessontext"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

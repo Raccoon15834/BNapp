@@ -67,9 +67,7 @@ public class WriteActivity extends Activity implements NavigationBarView.OnItemS
                 content.setText("");
                 //input in database
                 //TODO increment number of posts too
-                //what the heck is a .child??? why not just getReference()? - https://www.techotopia.com/index.php?title=Writing_Firebase_Realtime_Database_Data&mobileaction=toggle_view_mobile#
-                //String key = messageRef.push().getKey();
-                //chatMessageModel.messageId = key;
+                //child?? why not just getReference()? - https://www.techotopia.com/index.php?title=Writing_Firebase_Realtime_Database_Data&mobileaction=toggle_view_mobile#
                 //messageRef.child(key).setValue(chatMessageModel); CAN DO THIS orrr directly ref.push().setValue();
                 // update post in multiple places https://firebase.google.com/docs/database/android/read-and-write#update_specific_fields
                 //automatically create pathways - by calling getReference(/test/data/message1);

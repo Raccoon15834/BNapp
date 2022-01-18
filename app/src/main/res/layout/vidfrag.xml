@@ -3,22 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="@dimen/padding">
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/deckBg"
-        android:scaleType="fitStart"
-        android:src="@drawable/ic_flashcardbg"/>
-    <TextView
+    android:padding="@dimen/lilMargin"
+    android:id="@+id/vidFrag">
+    <VideoView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/vid"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnplay"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:id="@+id/deckTitle"
-        style="@style/pagesubtitle"/>
-
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

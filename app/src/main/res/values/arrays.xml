@@ -26,7 +26,7 @@
     </integer-array>
     <string-array name="deck2">
         <item>Kumro</item>
-        <item>Sag</item>
+        <item>Sak [shag] শাক</item>
         <item>Shosha</item>
     </string-array>
 
@@ -36,13 +36,12 @@
     <string-array name="speakLessonNames">
         <item>Pronunciation</item>
         <item>People &amp; Generalities</item>
-        <item>Verb Infinitives + Present Progressive</item>
-        <item>Questions &amp; Directions</item>
-        <item>Pronunciation</item>
-        <item>Other Verb Tenses</item>
+        <item>Verbs Present Progressive Tense + Simple sentences</item>
     </string-array>
     <integer-array name="speakLayoutIds">
-        <item>@layout/less1</item>
+        <item>@layout/lesson1</item>
+        <item>@layout/lesson2</item>
+        <item>@layout/lesson3</item>
     </integer-array>
 
     <string-array name="reader1">
@@ -135,6 +134,11 @@
         <item>directions, directions, directions</item>
         <item>asdfjhaljdshfajdhflajdf</item>
     </string-array>
+
+    <integer-array name="animboxes11">
+        <item>@raw/bari</item>
+        <item>@raw/bhari</item>
+    </integer-array>
 
 
 </resources>

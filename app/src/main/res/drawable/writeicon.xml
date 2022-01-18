@@ -2,20 +2,20 @@
 <animated-selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/checked"
-        android:drawable="@drawable/speak1"
+        android:drawable="@drawable/write1"
         android:state_checked="true" />
     <item
         android:id="@+id/unchecked"
-        android:drawable="@drawable/speak0"
+        android:drawable="@drawable/write0"
         android:state_checked="false" />
 
     <transition
-        android:drawable="@drawable/select2speak"
+        android:drawable="@drawable/select2write"
         android:fromId="@id/unchecked"
         android:toId="@id/checked" />
 
     <transition
-        android:drawable="@drawable/unselect2speak"
+        android:drawable="@drawable/unselect2write"
         android:fromId="@+id/checked"
         android:toId="@+id/unchecked" />
 </animated-selector>

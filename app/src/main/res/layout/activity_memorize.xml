@@ -67,7 +67,8 @@
         android:id="@+id/bottom_navigatin_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@drawable/ic_bottombarbg"
+        app:itemIconSize="@dimen/design_bottom_navigation_height"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menubar" />
 

@@ -37,7 +37,9 @@
         app:layout_constraintBottom_toTopOf="@id/bannerline"
         app:layout_constraintVertical_bias="1.1"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:text="@string/about"/>
+        android:text="@string/about"
+        style="@style/lessontext"
+        />
     <androidx.appcompat.widget.AppCompatImageButton
         android:layout_width="wrap_content"
         android:layout_height="@dimen/btnHeight"
@@ -78,6 +80,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menubar"
+        android:background="@drawable/ic_bottombarbg"
+        app:itemIconSize="@dimen/design_bottom_navigation_height"
         />
 
 
